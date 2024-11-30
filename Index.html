@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff6f61, #ffc371);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            display: block;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .card button:hover {
+            background: #ff3333;
+        }
+
+        /* Popup Styling */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            max-width: 90%;
+            width: 300px;
+        }
+
+        .popup-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .popup-content h2 {
+            color: #ff6f61;
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .popup-content p {
+            color: #555;
+            font-size: 1em;
+        }
+
+        .popup-content button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .popup-content button:hover {
+            background: #ff3333;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: #ff6f61;
+            cursor: pointer;
+        }
+
+        /* Falling Snow */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10px);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1𝙼𝚎𝚛𝚛𝚢 𝙲𝚑𝚛𝚒𝚜𝚝𝚖𝚊𝚜 🎄</h1>
+        <p>𝚑𝚘𝚙𝚎 𝚢𝚘𝚞 𝚊𝚛𝚎 𝚟𝚎𝚛𝚢 𝚑𝚊𝚙𝚙𝚢</p>
+    </header>
+    <div class="content">
+        <div class="card">
+            <h2>🎁 𝙾𝚙𝚎𝚗 𝚌𝚊𝚛𝚍</h2>
+            <p>𝐓𝐚𝐩 𝐭𝐡𝐞 𝐛𝐮𝐭𝐭𝐨𝐧 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐨𝐩𝐞𝐧 𝐲𝐨𝐮𝐫 𝐂𝐡𝐫𝐢𝐬𝐭𝐦𝐚𝐬 𝐜𝐚𝐫𝐝</p>
+            <button onclick="openCard()">𝙾𝚙𝚎𝚗 𝚌𝚊𝚛𝚍</button>
+        </div>
+    </div>
+
+
+    <!-- Popup -->
+    <div class="popup" id="cardPopup">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closeCard()">&times;</span>
+            <img src="https://assets.onecompiler.app/42zntgsj6/42zntfcj6/9fc5c58723955e1f00848ec32de1c19e.jpg" alt="Santa Claus">
+            <h2>🎄 𝙼𝚎𝚛𝚛𝚢 𝙲𝚑𝚛𝚒𝚜𝚝𝚖𝚊𝚜!</h2>
+            <p>𝐖𝐢𝐬𝐡𝐢𝐧𝐠 𝐲𝐨𝐮 𝐚 𝐌𝐞𝐫𝐫𝐲 𝐂𝐡𝐫𝐢𝐬𝐭𝐦𝐚𝐬 𝐟𝐢𝐥𝐥𝐞𝐝 𝐰𝐢𝐭𝐡 𝐥𝐨𝐯𝐞, 𝐣𝐨𝐲, 𝐚𝐧𝐝 𝐰𝐚𝐫𝐦𝐭𝐡. 𝐌𝐚𝐲 𝐭𝐡𝐢𝐬 𝐟𝐞𝐬𝐭𝐢𝐯𝐞 𝐬𝐞𝐚𝐬𝐨𝐧 𝐛𝐫𝐢𝐧𝐠 𝐲𝐨𝐮 𝐡𝐚𝐩𝐩𝐢𝐧𝐞𝐬𝐬 𝐚𝐧𝐝 𝐛𝐥𝐞𝐬𝐬𝐢𝐧𝐠𝐬 𝐭𝐡𝐚𝐭 𝐥𝐚𝐬𝐭 𝐭𝐡𝐫𝐨𝐮𝐠𝐡𝐨𝐮𝐭 𝐭𝐡𝐞 𝐲𝐞𝐚𝐫. 𝐌𝐞𝐫𝐫𝐲 𝐂𝐡𝐫𝐢𝐬𝐭𝐦𝐚𝐬!</p>
+            <button onclick="closeCard()">Close</button>
+        </div>
+    </div>
+
+    <!-- Falling Snow -->
+    <script>
+        // Open and close popup functions
+        function openCard() {
+            document.getElementById('cardPopup').style.display = 'flex';
+        }
+
+        function closeCard() {
+            document.getElementById('cardPopup').style.display = 'none';
+        }
+
+        // Generate falling snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄️';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after animation
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        // Continuously create snowflakes
+        setInterval(createSnowflake, 300);
+    </script>
+</body>
+</html>
